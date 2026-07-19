@@ -1,0 +1,115 @@
+# ============================================================
+# QuoteFlow AI — config/settings.yaml
+# Central configuration for orchestration thresholds, model
+# mappings, database paths, and Alibaba Cloud service targets.
+# Secrets are NEVER stored here — only ${ENV_VAR} references,
+# resolved at runtime by config/settings_loader.py.
+# ============================================================
+
+app:
+  name: "QuoteFlow AI"
+  version: "3.0.0"
+  track: "Track 4: Autopilot Agent"
+  environment: "production"          # production | staging | local
+  timezone: "UTC"
+
+# ------------------------------------------------------------
+# Reasoning Engine — Qwen2.5 via DashScope OpenAI-compatible API
+# Qwen NEVER controls flow. It only returns structured JSON:
+# { decision, confidence_score, reasoning_summary }
+# ------------------------------------------------------------
+qwen:
+  api_key_env: "DASHSCOPE_API_KEY"
+  base_url: "https://dashscope-intl.aliyuncs.com/compatible-mode/v1"
+  request_timeout_seconds: 30
+  max_retries: 3
+  retry_backoff_seconds: 2
+  models:
+    intake_parser: "qwen-plus"          # structured extraction — fast + cheap
+    risk_fraud_assessor: "qwen-max"     # highest reasoning depth for risk scoring
+    negotiation_agent: "qwen-max"       # highest reasoning depth for negotiation
+    default: "qwen-plus"
+  generation:
+    temperature: 0.1                    # low temperature — deterministic structured output
+    top_p: 0.8
+    max_tokens: 1024
+    response_format: "json_object"
+
+# ------------------------------------------------------------
+# Orchestration thresholds — read by LangGraph conditional edges.
+# These are the ONLY values that decide routing; Qwen's JSON
+# output is measured against them by the graph engine, not by
+# the LLM itself.
+# ------------------------------------------------------------
+thresholds:
+  confidence_threshold: 0.7   # negotiation_agent: >= routes to pdf_quote_generator
+  risk_threshold: 0.6         # risk_fraud_assessor: >= routes to human_approval_gate
+  min_trust_score: 0.3        # clients.trust_score floor before auto-flagging risk
+  max_negotiation_rounds: 3
+
+# ------------------------------------------------------------
+# LangGraph node registry — canonical node names used across
+# orchestrator.py, agents/*, and dashboard.py. Keeping this list
+# centralized avoids magic strings drifting between modules.
+# ------------------------------------------------------------
+nodes:
+  order:
+    - intake_parser
+    - pricing_calculator
+    - risk_fraud_assessor
+    - negotiation_agent
+    - human_approval_gate
+    - pdf_quote_generator
+  interrupt_before:
+    - human_approval_gate
+  terminal_states:
+    - finalized
+    - rejected
+    - error
+
+# ------------------------------------------------------------
+# Database — SQLite single source of truth for task_state,
+# audit_log, and LangGraph's own checkpoint tables.
+# ------------------------------------------------------------
+database:
+  sqlite_path: "db/quoteflow.db"
+  checkpoint_table: "langgraph_checkpoints"
+  connection_timeout_seconds: 15
+  enable_wal_mode: true
+
+# ------------------------------------------------------------
+# Alibaba Cloud — deployment targets referenced by
+# alibaba_services.py. Credentials resolved via env vars only.
+# ------------------------------------------------------------
+alibaba_cloud:
+  region_id: "ap-southeast-1"
+  access_key_id_env: "ALIBABA_CLOUD_ACCESS_KEY_ID"
+  access_key_secret_env: "ALIBABA_CLOUD_ACCESS_KEY_SECRET"
+  function_compute:
+    service_name: "quoteflow-ai-service"
+    function_name: "quoteflow-orchestrator"
+    runtime: "python3.10"
+    memory_mb: 512
+    timeout_seconds: 120
+  oss:
+    bucket_name: "quoteflow-ai-quotes"
+    endpoint: "oss-ap-southeast-1.aliyuncs.com"
+    quote_prefix: "quotes/"
+    presigned_url_expiry_seconds: 3600
+
+# ------------------------------------------------------------
+# PDF Quote Generation
+# ------------------------------------------------------------
+pdf_generation:
+  template_name: "standard_quote_v3"
+  output_dir: "outputs/quotes"
+  company_name: "QuoteFlow AI Client Services"
+  currency_symbol: "$"
+
+# ------------------------------------------------------------
+# Dashboard — read-only visualization config
+# ------------------------------------------------------------
+dashboard:
+  refresh_interval_seconds: 5
+  page_title: "QuoteFlow AI — Live Operations"
+  max_recent_logs: 200

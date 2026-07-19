@@ -1,0 +1,366 @@
+<svg viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowBlue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#94A3B8"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrowAmber" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#D97706"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#16A34A"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#DC2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1200" fill="#FAFBFC"/>
+
+  <!-- ============ TITLE BLOCK ============ -->
+  <rect x="0" y="0" width="1600" height="86" fill="#0B1120"/>
+  <text x="60" y="38" font-size="22" font-weight="700" fill="#FFFFFF">QuoteFlow AI</text>
+  <text x="184" y="38" font-size="22" font-weight="400" fill="#60A5FA">System Architecture</text>
+  <text x="60" y="62" font-size="12.5" fill="#94A3B8">Autonomous B2B Quote Generation · LangGraph Orchestration · Qwen2.5 Reasoning · Alibaba Cloud Deployment</text>
+  <text x="1540" y="38" font-size="12" fill="#64748B" text-anchor="end">v3.0</text>
+  <text x="1540" y="58" font-size="11" fill="#475569" text-anchor="end">Track 4 — Autopilot Agent</text>
+
+  <!-- ============ COLUMN HEADERS ============ -->
+  <g font-size="11" font-weight="700" fill="#64748B" letter-spacing="1.2">
+    <text x="60" y="122">CLIENT</text>
+    <text x="230" y="122">FRONTEND</text>
+    <text x="490" y="122">SERVERLESS BACKEND</text>
+    <text x="870" y="122">ORCHESTRATION + REASONING</text>
+    <text x="1360" y="122">PERSISTENCE</text>
+  </g>
+  <line x1="60" y1="132" x2="1540" y2="132" stroke="#E2E8F0" stroke-width="1"/>
+
+  <!-- ============ COLUMN 1: CLIENT ============ -->
+  <g>
+    <circle cx="105" cy="185" r="16" fill="none" stroke="#334155" stroke-width="2.2"/>
+    <path d="M78,232 Q105,200 132,232" fill="none" stroke="#334155" stroke-width="2.2"/>
+    <text x="105" y="260" text-anchor="middle" font-size="12" font-weight="600" fill="#1E293B">Buyer / Ops Team</text>
+    <text x="105" y="276" text-anchor="middle" font-size="10" fill="#64748B">Submits RFQ text</text>
+  </g>
+  <line x1="146" y1="200" x2="205" y2="200" stroke="#334155" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+
+  <!-- ============ COLUMN 2: FRONTEND ============ -->
+  <rect x="210" y="150" width="230" height="620" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+
+  <rect x="230" y="172" width="190" height="76" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.3"/>
+  <rect x="244" y="184" width="60" height="42" rx="3" fill="none" stroke="#2563EB" stroke-width="1.8"/>
+  <line x1="244" y1="219" x2="304" y2="219" stroke="#2563EB" stroke-width="1.8"/>
+  <text x="316" y="203" font-size="12" font-weight="700" fill="#1E3A8A">Streamlit</text>
+  <text x="316" y="218" font-size="12" font-weight="700" fill="#1E3A8A">Dashboard</text>
+  <text x="244" y="240" font-size="9.5" fill="#3B5998">Live ops console · dashboard.py</text>
+
+  <rect x="230" y="264" width="190" height="60" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="244" y="288" font-size="11" font-weight="700" fill="#1E293B">RFQ Intake Form</text>
+  <text x="244" y="304" font-size="9.5" fill="#64748B">Client name, email, RFQ text</text>
+
+  <rect x="230" y="338" width="190" height="60" rx="8" fill="#FFFBEB" stroke="#FDE68A" stroke-width="1.3"/>
+  <text x="244" y="362" font-size="11" font-weight="700" fill="#92400E">Approval Console</text>
+  <text x="244" y="378" font-size="9.5" fill="#B45309">Approve / Reject HITL gate</text>
+
+  <rect x="230" y="412" width="190" height="60" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="244" y="436" font-size="11" font-weight="700" fill="#1E293B">Audit Trail Viewer</text>
+  <text x="244" y="452" font-size="9.5" fill="#64748B">Per-node reasoning log</text>
+
+  <rect x="230" y="486" width="190" height="52" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.3"/>
+  <text x="244" y="507" font-size="11" font-weight="700" fill="#166534">View Quote Link</text>
+  <text x="244" y="522" font-size="9.5" fill="#15803D">Opens final PDF, any backend</text>
+
+  <rect x="230" y="552" width="190" height="52" rx="8" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1.3"/>
+  <text x="244" y="573" font-size="11" font-weight="700" fill="#5B21B6">MCP Client</text>
+  <text x="244" y="588" font-size="9.5" fill="#7C3AED">Claude / external agents</text>
+
+  <!-- connectors frontend -> backend -->
+  <line x1="420" y1="210" x2="475" y2="210" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+  <text x="425" y="203" font-size="8.5" fill="#64748B">HTTPS / REST</text>
+  <line x1="420" y1="294" x2="475" y2="294" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowGray)"/>
+  <line x1="420" y1="368" x2="475" y2="368" stroke="#D97706" stroke-width="1.6" stroke-dasharray="3,3" marker-end="url(#arrowAmber)"/>
+  <line x1="420" y1="442" x2="475" y2="442" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowGray)"/>
+  <line x1="420" y1="512" x2="475" y2="512" stroke="#16A34A" stroke-width="1.6" stroke-dasharray="3,3" marker-end="url(#arrowGreen)"/>
+  <line x1="420" y1="578" x2="475" y2="578" stroke="#7C3AED" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowPurple)"/>
+
+  <!-- ============ COLUMN 3: SERVERLESS BACKEND ============ -->
+  <rect x="480" y="150" width="360" height="330" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="500" y="176" font-size="10.5" font-weight="700" fill="#64748B" letter-spacing="0.8">ALIBABA CLOUD FUNCTION COMPUTE</text>
+
+  <rect x="500" y="192" width="320" height="72" rx="8" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.3"/>
+  <text x="516" y="216" font-size="12.5" font-weight="700" fill="#1E3A8A">FastAPI Application</text>
+  <text x="516" y="232" font-size="9.5" fill="#3B5998" font-family="Courier, monospace">backend/main.py</text>
+  <text x="516" y="248" font-size="9" fill="#3B5998">/rfq/submit · /status · /approve · /quote-pdf</text>
+
+  <rect x="500" y="276" width="150" height="56" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="513" y="298" font-size="10.5" font-weight="700" fill="#1E293B">mcp_app/server.py</text>
+  <text x="513" y="314" font-size="9" fill="#64748B">MCP tool dispatch</text>
+
+  <rect x="666" y="276" width="154" height="56" rx="8" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="679" y="298" font-size="10.5" font-weight="700" fill="#1E293B">alibaba_services.py</text>
+  <text x="679" y="314" font-size="9" fill="#64748B">OSS + FC SDK wrapper</text>
+
+  <line x1="650" y1="304" x2="666" y2="304" stroke="#CBD5E1" stroke-width="1.3" stroke-dasharray="3,3"/>
+
+  <rect x="500" y="350" width="320" height="34" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.2"/>
+  <circle cx="516" cy="367" r="5" fill="#16A34A"/>
+  <text x="530" y="371" font-size="9.5" fill="#166534">Region: ap-southeast-1 · Python 3.10 · 512MB · 120s timeout</text>
+
+  <line x1="660" y1="384" x2="660" y2="405" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+
+  <!-- ============ COLUMN 4: ORCHESTRATION + REASONING ============ -->
+  <rect x="480" y="410" width="820" height="470" rx="10" fill="#FFFFFF" stroke="#2563EB" stroke-width="1.6"/>
+  <text x="500" y="436" font-size="11.5" font-weight="700" fill="#1D4ED8" letter-spacing="0.6">LANGGRAPH ORCHESTRATOR — backend/orchestrator.py</text>
+  <text x="500" y="452" font-size="9.5" fill="#64748B">StateGraph · AgentState schema · SQLite-backed checkpointer (interrupt_before human_approval_gate)</text>
+
+  <!-- Node pipeline with color-coded conditional routing -->
+  <g font-size="9.6" font-weight="700" text-anchor="middle">
+    <rect x="510" y="480" width="94" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+    <text x="557" y="503" fill="#1E293B">Intake</text>
+    <text x="557" y="517" fill="#1E293B">Parser</text>
+
+    <line x1="604" y1="506" x2="626" y2="506" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+
+    <rect x="628" y="480" width="94" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+    <text x="675" y="503" fill="#1E293B">Pricing</text>
+    <text x="675" y="517" fill="#1E293B">Calculator</text>
+
+    <line x1="722" y1="506" x2="744" y2="506" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+
+    <rect x="746" y="480" width="94" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+    <text x="793" y="500" fill="#1E293B">Risk &amp; Fraud</text>
+    <text x="793" y="514" fill="#1E293B">Assessor</text>
+
+    <rect x="864" y="480" width="94" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+    <text x="911" y="503" fill="#1E293B">Negotiation</text>
+    <text x="911" y="517" fill="#1E293B">Agent</text>
+
+    <rect x="864" y="586" width="94" height="52" rx="7" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.6"/>
+    <text x="911" y="606" fill="#92400E">Human</text>
+    <text x="911" y="620" fill="#92400E">Approval</text>
+
+    <rect x="1156" y="480" width="94" height="52" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+    <text x="1203" y="500" fill="#1E293B">PDF Quote</text>
+    <text x="1203" y="514" fill="#1E293B">Generator</text>
+  </g>
+
+  <!-- Risk -> Negotiation (auto, low risk) -->
+  <line x1="840" y1="497" x2="862" y2="497" stroke="#16A34A" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="795" y="472" font-size="8" fill="#16A34A" font-weight="700">risk &lt; 0.6 (auto)</text>
+
+  <!-- Risk -> Human Gate (high risk) -->
+  <path d="M793,532 C793,570 850,600 862,608" fill="none" stroke="#D97706" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+  <text x="720" y="560" font-size="8" fill="#D97706" font-weight="700">risk ≥ 0.6 → review</text>
+
+  <!-- Negotiation -> PDF Generator (auto, high confidence) -->
+  <path d="M958,497 C1050,497 1080,497 1154,497" fill="none" stroke="#16A34A" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+  <text x="1010" y="488" font-size="8" fill="#16A34A" font-weight="700">confidence ≥ 0.7 (auto)</text>
+
+  <!-- Negotiation -> Human Gate (low confidence) -->
+  <line x1="911" y1="532" x2="911" y2="584" stroke="#D97706" stroke-width="1.8" marker-end="url(#arrowAmber)"/>
+  <text x="920" y="560" font-size="8" fill="#D97706" font-weight="700">confidence &lt; 0.7</text>
+
+  <!-- Human Gate -> PDF Generator (approved) -->
+  <path d="M958,608 C1080,608 1150,560 1198,534" fill="none" stroke="#D97706" stroke-width="1.8" stroke-dasharray="5,2" marker-end="url(#arrowAmber)"/>
+  <text x="1050" y="586" font-size="8" fill="#D97706" font-weight="700">approved</text>
+
+  <!-- Human Gate -> Rejected/End -->
+  <rect x="746" y="586" width="94" height="52" rx="7" fill="#FEF2F2" stroke="#FCA5A5" stroke-width="1.4"/>
+  <text x="793" y="608" text-anchor="middle" font-size="9.6" font-weight="700" fill="#991B1B">REJECTED</text>
+  <text x="793" y="622" text-anchor="middle" font-size="8" fill="#B91C1C">Thread ends</text>
+  <line x1="864" y1="612" x2="842" y2="612" stroke="#DC2626" stroke-width="1.8" marker-end="url(#arrowRed)"/>
+  <text x="820" y="646" font-size="8" fill="#DC2626" font-weight="700" text-anchor="middle">rejected</text>
+
+  <text x="500" y="662" font-size="9" fill="#64748B">Interrupt checkpoint: LangGraph genuinely pauses at Human Approval — resumes exactly where it stopped via update_state()</text>
+
+  <!-- Qwen reasoning connectors -->
+  <line x1="557" y1="532" x2="557" y2="580" stroke="#7C3AED" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+  <line x1="793" y1="466" x2="793" y2="440" stroke="none"/>
+  <line x1="793" y1="480" x2="793" y2="440" stroke="none"/>
+  <path d="M793,480 L793,440" stroke="none"/>
+  <line x1="620" y1="672" x2="557" y2="590" stroke="none"/>
+  <!-- direct qwen calls from each reasoning node down to Qwen panel -->
+  <line x1="557" y1="532" x2="557" y2="672" stroke="none"/>
+  <line x1="793" y1="532" x2="793" y2="672" stroke="#7C3AED" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+  <line x1="911" y1="532" x2="911" y2="672" stroke="#7C3AED" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+
+  <!-- Qwen Cloud reasoning panel -->
+  <rect x="500" y="678" width="780" height="80" rx="8" fill="#FAF5FF" stroke="#DDD6FE" stroke-width="1.4"/>
+  <circle cx="530" cy="706" r="13" fill="none" stroke="#7C3AED" stroke-width="2"/>
+  <path d="M530,697 L530,715 M521,706 L539,706" stroke="#7C3AED" stroke-width="1.6"/>
+  <text x="555" y="701" font-size="12.5" font-weight="700" fill="#5B21B6">Qwen2.5 Reasoning Engine</text>
+  <text x="555" y="716" font-size="9.5" fill="#6B46C1">Qwen Cloud · DashScope-compatible API</text>
+  <text x="555" y="734" font-size="9.5" fill="#4C1D95" font-family="Courier, monospace">qwen-plus (intake) · qwen-max (risk + negotiation)</text>
+  <text x="555" y="748" font-size="9" fill="#64748B">Pure reasoning only — returns {decision, confidence_score, reasoning_summary}. Never controls routing.</text>
+
+  <!-- AgentState + Checkpointer -->
+  <rect x="500" y="768" width="380" height="56" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="514" y="789" font-size="10.5" font-weight="700" fill="#1E293B">AgentState (TypedDict)</text>
+  <text x="514" y="804" font-size="9" fill="#64748B">Single typed object threaded through every node</text>
+  <text x="514" y="817" font-size="9" fill="#64748B">— the graph's only shared memory</text>
+
+  <rect x="896" y="768" width="384" height="56" rx="7" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="910" y="789" font-size="10.5" font-weight="700" fill="#1E293B">SQLite Checkpointer</text>
+  <text x="910" y="804" font-size="9" fill="#64748B">Persists graph state — resumes human_approval_gate</text>
+  <text x="910" y="817" font-size="9" fill="#64748B">exactly where execution paused</text>
+
+  <!-- module list -->
+  <rect x="500" y="836" width="780" height="34" rx="7" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="514" y="858" font-size="9.5" font-family="Courier, monospace" fill="#475569">agents/: intake_parser · risk_fraud · negotiation (Qwen) · pricing (deterministic) · pdf_generation</text>
+
+  <!-- connector orchestrator -> db -->
+  <line x1="1250" y1="506" x2="1290" y2="506" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+  <text x="1256" y="497" font-size="8.5" fill="#64748B">writes</text>
+
+  <!-- ============ COLUMN 5: PERSISTENCE ============ -->
+  <rect x="1295" y="410" width="215" height="470" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+
+  <ellipse cx="1402" cy="450" rx="46" ry="10" fill="none" stroke="#334155" stroke-width="2"/>
+  <path d="M1356,450 L1356,478 A46,10 0 0 0 1448,478 L1448,450" fill="none" stroke="#334155" stroke-width="2"/>
+  <text x="1402" y="500" text-anchor="middle" font-size="11" font-weight="700" fill="#1E293B">SQLite (WAL)</text>
+  <text x="1402" y="514" text-anchor="middle" font-size="8.5" fill="#64748B">Single source of truth</text>
+
+  <rect x="1311" y="530" width="182" height="50" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <text x="1402" y="551" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">task_state</text>
+  <text x="1402" y="565" text-anchor="middle" font-size="8" fill="#64748B">Live status per thread</text>
+
+  <rect x="1311" y="588" width="182" height="50" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <text x="1402" y="609" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">audit_log</text>
+  <text x="1402" y="623" text-anchor="middle" font-size="8" fill="#64748B">Append-only node trail</text>
+
+  <rect x="1311" y="646" width="182" height="50" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <text x="1402" y="663" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">pricing_rules · clients</text>
+  <text x="1402" y="677" text-anchor="middle" font-size="8" fill="#64748B">Deterministic lookups</text>
+
+  <rect x="1311" y="704" width="182" height="50" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1.2"/>
+  <text x="1402" y="725" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">human_approvals</text>
+  <text x="1402" y="739" text-anchor="middle" font-size="8" fill="#64748B">Reviewer decisions</text>
+
+  <!-- Explicit dashboard <-> DB live read loop -->
+  <path d="M1311,760 C1150,840 700,840 420,760 L420,340" fill="none" stroke="#94A3B8" stroke-width="1.8" stroke-dasharray="4,3" marker-end="url(#arrowGray)"/>
+  <rect x="560" y="815" width="620" height="34" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="1.2"/>
+  <text x="870" y="836" text-anchor="middle" font-size="9.3" fill="#334155" font-weight="600">Dashboard polls task_state · audit_log · pricing_rules directly (read-only, 5s refresh) — never a second source of truth</text>
+
+  <!-- ============ OUTPUT LIFECYCLE ROW ============ -->
+  <rect x="480" y="900" width="1030" height="140" rx="10" fill="#FFFFFF" stroke="#16A34A" stroke-width="1.6"/>
+  <text x="500" y="924" font-size="11.5" font-weight="700" fill="#166534" letter-spacing="0.6">OUTPUT LIFECYCLE — from PDF Quote Generator to the client's browser</text>
+
+  <rect x="500" y="938" width="120" height="50" rx="7" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.3"/>
+  <text x="560" y="958" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">PDF Quote</text>
+  <text x="560" y="972" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1E293B">Generator</text>
+
+  <!-- decision diamond -->
+  <polygon points="700,938 760,963 700,988 640,963" fill="#FFFBEB" stroke="#F59E0B" stroke-width="1.4"/>
+  <text x="700" y="960" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">OSS</text>
+  <text x="700" y="971" text-anchor="middle" font-size="8" font-weight="700" fill="#92400E">reachable?</text>
+
+  <line x1="620" y1="963" x2="638" y2="963" stroke="#334155" stroke-width="1.6" marker-end="url(#arrowGray)"/>
+
+  <rect x="785" y="912" width="140" height="44" rx="7" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.3"/>
+  <text x="855" y="930" text-anchor="middle" font-size="9" font-weight="700" fill="#166534">Alibaba Cloud OSS</text>
+  <text x="855" y="944" text-anchor="middle" font-size="8" fill="#15803D">Presigned HTTPS URL</text>
+
+  <rect x="785" y="968" width="140" height="44" rx="7" fill="#FEF9EC" stroke="#FDE68A" stroke-width="1.3"/>
+  <text x="855" y="986" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">Local Fallback</text>
+  <text x="855" y="1000" text-anchor="middle" font-size="8" fill="#B45309">local:// reference</text>
+
+  <line x1="760" y1="953" x2="783" y2="933" stroke="#16A34A" stroke-width="1.6" marker-end="url(#arrowGreen)"/>
+  <text x="762" y="925" font-size="7.5" fill="#16A34A" font-weight="700">yes</text>
+  <line x1="760" y1="973" x2="783" y2="990" stroke="#D97706" stroke-width="1.6" marker-end="url(#arrowAmber)"/>
+  <text x="762" y="1000" font-size="7.5" fill="#D97706" font-weight="700">no</text>
+
+  <line x1="925" y1="934" x2="960" y2="960" stroke="#16A34A" stroke-width="1.6" marker-end="url(#arrowGreen)"/>
+  <line x1="925" y1="990" x2="960" y2="966" stroke="#D97706" stroke-width="1.6" marker-end="url(#arrowAmber)"/>
+
+  <rect x="965" y="938" width="150" height="50" rx="7" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.3"/>
+  <text x="1040" y="957" text-anchor="middle" font-size="9" font-weight="700" fill="#1E3A8A">Unified /quote-pdf</text>
+  <text x="1040" y="971" text-anchor="middle" font-size="8" fill="#3B5998">Same URL, either backend</text>
+  <text x="1040" y="982" text-anchor="middle" font-size="7.5" fill="#64748B" font-family="Courier, monospace">backend/main.py</text>
+
+  <line x1="1115" y1="963" x2="1150" y2="963" stroke="#2563EB" stroke-width="1.8" marker-end="url(#arrowBlue)"/>
+
+  <rect x="1155" y="938" width="130" height="50" rx="7" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.3"/>
+  <text x="1220" y="957" text-anchor="middle" font-size="9" font-weight="700" fill="#166534">View Quote</text>
+  <text x="1220" y="971" text-anchor="middle" font-size="8" fill="#15803D">Opens in new browser tab</text>
+
+  <line x1="1285" y1="963" x2="1320" y2="963" stroke="#16A34A" stroke-width="1.8" marker-end="url(#arrowGreen)"/>
+
+  <!-- QR code representation -->
+  <rect x="1325" y="932" width="60" height="60" rx="4" fill="#FFFFFF" stroke="#334155" stroke-width="1.4"/>
+  <g fill="#0F172A">
+    <rect x="1331" y="938" width="8" height="8"/><rect x="1347" y="938" width="4" height="4"/><rect x="1369" y="938" width="8" height="8"/>
+    <rect x="1331" y="954" width="4" height="4"/><rect x="1343" y="954" width="4" height="4"/><rect x="1355" y="954" width="8" height="4"/><rect x="1373" y="954" width="4" height="4"/>
+    <rect x="1331" y="966" width="8" height="8"/><rect x="1351" y="966" width="4" height="8"/><rect x="1369" y="966" width="8" height="8"/>
+    <rect x="1343" y="978" width="4" height="4"/><rect x="1359" y="978" width="4" height="4"/>
+  </g>
+  <text x="1355" y="1002" text-anchor="middle" font-size="8" fill="#64748B">QR embedded in PDF</text>
+
+  <!-- QR loops back to audit trail -->
+  <path d="M1355,1012 C1355,1050 700,1060 500,1000 L500,760" fill="none" stroke="#7C3AED" stroke-width="1.6" stroke-dasharray="4,3" marker-end="url(#arrowPurple)"/>
+  <text x="700" y="1050" text-anchor="middle" font-size="8.5" fill="#7C3AED" font-weight="600">Scans to /rfq/{task_id}/status — live audit trail, closing the loop</text>
+
+  <!-- ============ LEGEND ============ -->
+  <rect x="60" y="900" width="400" height="140" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.3"/>
+  <text x="78" y="924" font-size="11" font-weight="700" fill="#334155" letter-spacing="0.6">LEGEND</text>
+
+  <line x1="78" y1="944" x2="112" y2="944" stroke="#2563EB" stroke-width="2"/>
+  <text x="120" y="948" font-size="9.5" fill="#334155">Primary automated workflow</text>
+
+  <line x1="78" y1="966" x2="112" y2="966" stroke="#D97706" stroke-width="2"/>
+  <text x="120" y="970" font-size="9.5" fill="#334155">Human-in-the-loop path (risk/confidence out of range)</text>
+
+  <line x1="78" y1="988" x2="112" y2="988" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="120" y="992" font-size="9.5" fill="#334155">Qwen2.5 reasoning call (data only, never routes)</text>
+
+  <line x1="78" y1="1010" x2="112" y2="1010" stroke="#94A3B8" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="120" y="1014" font-size="9.5" fill="#334155">Read-only / persistence flow</text>
+
+  <line x1="78" y1="1032" x2="112" y2="1032" stroke="#DC2626" stroke-width="2"/>
+  <text x="120" y="1036" font-size="9.5" fill="#334155">Rejection / terminal state</text>
+
+  <!-- ============ CLOUD DEPLOYMENT STRIP ============ -->
+  <rect x="60" y="1060" width="1480" height="120" rx="10" fill="#0B1120"/>
+  <text x="84" y="1086" font-size="11" font-weight="700" fill="#94A3B8" letter-spacing="1">ALIBABA CLOUD — DEPLOYMENT FOOTPRINT</text>
+
+  <!-- Reusable cloud icon path, repositioned per box -->
+  <g>
+    <rect x="84" y="1102" width="330" height="60" rx="8" fill="#111827" stroke="#22C55E" stroke-width="1.3"/>
+    <path d="M110,1132 a9,9 0 0 1 2,-17.7 a12,12 0 0 1 23,-2.3 a9,9 0 0 1 3.5,22 a7,7 0 0 1 -1,0.4 h-27.5 a9,9 0 0 1 -0,-2.4 z"
+          fill="none" stroke="#4ADE80" stroke-width="1.6"/>
+    <text x="156" y="1124" font-size="11" font-weight="700" fill="#E5FBE9">Function Compute</text>
+    <text x="156" y="1138" font-size="9" fill="#86EFAC">FastAPI backend runtime</text>
+    <text x="156" y="1151" font-size="8.5" fill="#4ADE80" font-family="Courier, monospace">quoteflow-ai-service</text>
+  </g>
+
+  <g>
+    <rect x="424" y="1102" width="330" height="60" rx="8" fill="#111827" stroke="#22C55E" stroke-width="1.3"/>
+    <path d="M450,1132 a9,9 0 0 1 2,-17.7 a12,12 0 0 1 23,-2.3 a9,9 0 0 1 3.5,22 a7,7 0 0 1 -1,0.4 h-27.5 a9,9 0 0 1 -0,-2.4 z"
+          fill="none" stroke="#4ADE80" stroke-width="1.6"/>
+    <text x="496" y="1124" font-size="11" font-weight="700" fill="#E5FBE9">Object Storage (OSS)</text>
+    <text x="496" y="1138" font-size="9" fill="#86EFAC">Finalized quote PDFs</text>
+    <text x="496" y="1151" font-size="8.5" fill="#4ADE80" font-family="Courier, monospace">quoteflow-ai-quotes</text>
+  </g>
+
+  <g>
+    <rect x="764" y="1102" width="330" height="60" rx="8" fill="#111827" stroke="#7C3AED" stroke-width="1.3"/>
+    <circle cx="792" cy="1128" r="12" fill="none" stroke="#A78BFA" stroke-width="1.6"/>
+    <path d="M792,1120 L792,1136 M785,1128 L799,1128" stroke="#A78BFA" stroke-width="1.4"/>
+    <text x="816" y="1124" font-size="11" font-weight="700" fill="#F3E8FF">Qwen Cloud</text>
+    <text x="816" y="1138" font-size="9" fill="#C4B5FD">Model Studio API</text>
+    <text x="816" y="1151" font-size="8.5" fill="#A78BFA" font-family="Courier, monospace">qwen-plus · qwen-max</text>
+  </g>
+
+  <g>
+    <rect x="1104" y="1102" width="416" height="60" rx="8" fill="#111827" stroke="#3B82F6" stroke-width="1.3"/>
+    <ellipse cx="1130" cy="1132" rx="12" ry="4" fill="none" stroke="#60A5FA" stroke-width="1.4"/>
+    <path d="M1118,1132 L1118,1140 A12,4 0 0 0 1142,1140 L1142,1132" fill="none" stroke="#60A5FA" stroke-width="1.4"/>
+    <text x="1154" y="1124" font-size="11" font-weight="700" fill="#DBEAFE">Region: ap-southeast-1</text>
+    <text x="1154" y="1138" font-size="9" fill="#93C5FD">RAM-scoped AccessKey · least-privilege</text>
+    <text x="1154" y="1151" font-size="8.5" fill="#60A5FA" font-family="Courier, monospace">db/quoteflow.db co-located with FC</text>
+  </g>
+</svg>

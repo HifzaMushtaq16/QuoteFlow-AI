@@ -1,0 +1,50 @@
+# ============================================================
+# QuoteFlow AI — requirements.txt
+# Orchestration: LangGraph | Reasoning: Qwen2.5 (DashScope API)
+# 100% free-tier, serverless on Alibaba Cloud Function Compute
+# ============================================================
+
+# --- Orchestration (State Manager / Graph Engine) ---
+langgraph==0.2.62
+langchain-core==0.3.29
+langchain-community==0.3.14
+langgraph-checkpoint==2.0.9
+langgraph-checkpoint-sqlite==2.0.1
+
+# --- Qwen2.5 Reasoning Engine (DashScope OpenAI-compatible endpoint) ---
+openai==1.59.6
+dashscope==1.20.14
+
+# --- Backend API / Serverless entrypoint ---
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic
+python-dotenv==1.0.1
+
+# --- Database ---
+# sqlite3 is part of Python's standard library — no install needed
+
+# --- PDF Quote Generation ---
+reportlab==4.2.5
+
+# --- Live Operations & Analytics Dashboard ---
+streamlit==1.41.1
+streamlit-autorefresh==1.0.1
+pandas
+plotly==5.24.1
+
+# --- Alibaba Cloud SDKs (deployment proof: alibaba_services.py) ---
+oss2
+aliyun-fc2
+
+# --- Model Context Protocol (MCP) Server SDK ---
+mcp
+
+# --- Utilities ---
+requests==2.32.3
+python-multipart==0.0.20
+
+qrcode[pil]
+
+# --- Testing ---
+pytest
