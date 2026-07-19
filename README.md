@@ -2,7 +2,7 @@
 
 **Autonomous B2B Quote Generation, Orchestrated End-to-End**
 
-QuoteFlow AI takes a raw inbound RFQ — an email, a pasted document, anything a buyer sends — and carries it, unattended, through structured extraction, deterministic pricing, AI-driven risk assessment, negotiation, an optional human approval checkpoint, and a finished, branded PDF quote. Every score, every routing decision, and every reasoning trace is written to a live, auditable database as it happens.
+QuoteFlow AI takes a raw inbound RFQ (an email, a pasted document, anything a buyer sends) and carries it, unattended, through structured extraction, deterministic pricing, AI-driven risk assessment, negotiation, an optional human approval checkpoint, and a finished, branded PDF quote. Every score, every routing decision, and every reasoning trace is written to a live, auditable database as it happens.
 
 Built for the **Global AI Hackathon Series with Qwen Cloud** — Track 4: Autopilot Agent.
 
@@ -86,7 +86,7 @@ Every RFQ runs through a compiled **LangGraph `StateGraph`**, checkpointed to SQ
 | **Human Approval Gate** | A genuine LangGraph `interrupt_before` checkpoint | — (human decision) |
 | **PDF Quote Generator** | Renders the branded PDF, uploads it, returns a URL | Deterministic — no LLM |
 
-**Strict separation of concerns**, enforced in the code itself: Qwen never decides what happens next — every reasoning call returns `{decision, confidence_score, reasoning_summary}` and nothing more. LangGraph's conditional edges are the *only* thing that reads those scores and routes the graph. This means the routing logic is fully deterministic, testable, and auditable independent of any LLM's behavior — see [`tests/test_orchestrator_routing.py`](./tests/test_orchestrator_routing.py).
+**Strict separation of concerns**, enforced in the code itself: Qwen never decides what happens next — every reasoning call returns `{decision, confidence_score, reasoning_summary}` and nothing more. LangGraph's conditional edges are the *only* thing that reads those scores and routes the graph. This means the routing logic is fully deterministic, testable, and auditable independent of any LLM's behavior — see [`tests/test_orchestrator_routing.py`](../tests/test_orchestrator_routing.py).
 
 ---
 
@@ -113,8 +113,8 @@ This is the section judges verifying "Proof of Alibaba Cloud Deployment" should 
 
 It is not a mock. Every method makes a real network call via the official SDKs:
 
-- **`AlibabaOSSService`** (via `oss2`) — checks whether the configured bucket exists, creates it if not, uploads files, generates presigned download URLs, and lists stored quote objects.
-- **`AlibabaFunctionComputeService`** (via `aliyun-fc2`) — checks whether the serverless function is deployed, fetches its live metadata, and can invoke it directly.
+- **`AlibabaOSSService`** (via `oss2`): checks whether the configured bucket exists, creates it if not, uploads files, generates presigned download URLs, and lists stored quote objects.
+- **`AlibabaFunctionComputeService`** (via `aliyun-fc2`): checks whether the serverless function is deployed, fetches its live metadata, and can invoke it directly.
 
 Run a live health check against both services with your own credentials:
 
@@ -171,11 +171,11 @@ QuoteFlow_AI/
 │   ├── test_pricing_agent.py      # Deterministic pricing math, no network calls
 │   └── test_orchestrator_routing.py  # Conditional-edge routing logic
 ├── docs/
-│   ├── README.md                   # this file
 │   └── architecture_diagram.svg
 ├── alibaba_services.py            # OSS + Function Compute — deployment proof
 ├── dashboard.py                    # Streamlit live-operations console
 ├── requirements.txt
+├── README.md                    # this file
 └── LICENSE
 ```
 
@@ -224,12 +224,12 @@ python mcp_app/server.py
 
 `dashboard.py` is a fully custom-styled Streamlit console — no default theme, no generic widgets. It reads **directly from SQLite** for every metric it shows; nothing is cached as a second source of truth, and nothing is hardcoded.
 
-- **KPI grid** — total RFQs, active threads, finalized/rejected counts, average confidence and risk, all computed live from `task_state`.
-- **Agent Routing Visualizer** — a horizontal node pipeline that highlights the currently active node in real time, marks completed nodes with a checkmark, and (when nothing is currently in-flight) shows a dimmed "Last Run" trace so the screen is never empty right after a task finishes.
-- **Confidence & Risk trend chart** — plotted directly from `audit_log`.
-- **Pending Human Approvals** — every task paused at `human_approval_gate`, with one-click Approve/Reject buttons that call the backend to resume the exact paused LangGraph thread.
-- **Task Inspector** — full step-by-step audit trail per task, including each node's `reasoning_summary`, confidence/risk scores, routing decision, and latency.
-- **View Quote** — a native clickable link column that opens the finished PDF in a new tab, identically whether it's stored on Alibaba OSS or served locally.
+- **KPI grid**: total RFQs, active threads, finalized/rejected counts, average confidence and risk, all computed live from `task_state`.
+- **Agent Routing Visualizer**: a horizontal node pipeline that highlights the currently active node in real time, marks completed nodes with a checkmark, and (when nothing is currently in-flight) shows a dimmed "Last Run" trace so the screen is never empty right after a task finishes.
+- **Confidence & Risk trend chart**: plotted directly from `audit_log`.
+- **Pending Human Approvals**: every task paused at `human_approval_gate`, with one-click Approve/Reject buttons that call the backend to resume the exact paused LangGraph thread.
+- **Task Inspector**: full step-by-step audit trail per task, including each node's `reasoning_summary`, confidence/risk scores, routing decision, and latency.
+- **View Quote**: a native clickable link column that opens the finished PDF in a new tab, identically whether it's stored on Alibaba OSS or served locally.
 
 Auto-refreshes every 5 seconds (`streamlit-autorefresh`) — no manual reload needed to watch a task move through the pipeline.
 
@@ -327,7 +327,7 @@ alibaba_cloud:
 
 ## License
 
-Distributed under the MIT License — see [`LICENSE`](../LICENSE).
+Distributed under the MIT License — see [`LICENSE`](./LICENSE).
 
 ---
 
