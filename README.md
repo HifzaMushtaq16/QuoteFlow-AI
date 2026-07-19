@@ -10,7 +10,7 @@ Built for the **Global AI Hackathon Series with Qwen Cloud** — Track 4: Autopi
 
 <p align="center">
   <img src="./docs/screenshots/dashboard_overview.png" width="49%" alt="Live pipeline visualizer and KPI grid" />
-  <img src="./docs/screenshots/generated_quote_pdf.png" width="30%" alt="Generated branded quote PDF" />
+  <img src="./docs/generated_quote_pdf.png" width="30%" alt="Generated branded quote PDF" />
 </p>
 <p align="center">
   <sub>Left: the live Agent Routing Visualizer mid-pipeline, with real-time KPIs pulled from SQLite. Right: the branded, auto-generated quote PDF with a QR code linking to the live audit trail.</sub>
@@ -86,7 +86,7 @@ Every RFQ runs through a compiled **LangGraph `StateGraph`**, checkpointed to SQ
 | **Human Approval Gate** | A genuine LangGraph `interrupt_before` checkpoint | — (human decision) |
 | **PDF Quote Generator** | Renders the branded PDF, uploads it, returns a URL | Deterministic — no LLM |
 
-**Strict separation of concerns**, enforced in the code itself: Qwen never decides what happens next — every reasoning call returns `{decision, confidence_score, reasoning_summary}` and nothing more. LangGraph's conditional edges are the *only* thing that reads those scores and routes the graph. This means the routing logic is fully deterministic, testable, and auditable independent of any LLM's behavior — see [`tests/test_orchestrator_routing.py`](../tests/test_orchestrator_routing.py).
+**Strict separation of concerns**, enforced in the code itself: Qwen never decides what happens next — every reasoning call returns `{decision, confidence_score, reasoning_summary}` and nothing more. LangGraph's conditional edges are the *only* thing that reads those scores and routes the graph. This means the routing logic is fully deterministic, testable, and auditable independent of any LLM's behavior — see [`tests/test_orchestrator_routing.py`](./tests/test_orchestrator_routing.py).
 
 ---
 
