@@ -9,8 +9,8 @@ Built for the **Global AI Hackathon Series with Qwen Cloud** — Track 4: Autopi
 ![Architecture Diagram](./docs/architecture_diagram.svg)
 
 <p align="center">
-  <img src="./docs/screenshots/dashboard_overview.png" width="49%" alt="Live pipeline visualizer and KPI grid" />
-  <img src="./docs/generated_quote_pdf.png" width="30%" alt="Generated branded quote PDF" />
+  <img src="./docs/screenshots/dashboard_overview.png" height="320" alt="Live pipeline visualizer and KPI grid" />
+  <img src="./docs/generated_quote_pdf.png" height="320" alt="Generated branded quote PDF" />
 </p>
 <p align="center">
   <sub>Left: the live Agent Routing Visualizer mid-pipeline, with real-time KPIs pulled from SQLite. Right: the branded, auto-generated quote PDF with a QR code linking to the live audit trail.</sub>
