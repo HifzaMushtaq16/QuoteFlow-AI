@@ -800,7 +800,7 @@ def render_recent_tasks_table(tasks_df: pd.DataFrame) -> None:
     display_df["Quote"] = display_df["quote_amount"].map(lambda v: f"${v:,.2f}" if pd.notna(v) else "—")
     display_df["Confidence"] = display_df["latest_confidence"].map(lambda v: f"{v:.0%}" if pd.notna(v) else "—")
     display_df["Risk"] = display_df["latest_risk_score"].map(lambda v: f"{v:.0%}" if pd.notna(v) else "—")
-    display_df["Updated"] = pd.to_datetime(display_df["updated_at"], format="mixed").dt.strftime("%Y-%m-%d %H:%M")
+    display_df["Updated"] = pd.to_datetime(display_df["updated_at"], format="mixed",utc=True).dt.strftime("%Y-%m-%d %H:%M")
     display_df["Task ID"] = display_df["task_id"].str[:8] + "…"
     display_df["View Quote"] = display_df.apply(
         lambda row: f"{_BACKEND_API_BASE_URL}/api/v1/rfq/{row['task_id']}/quote-pdf"
